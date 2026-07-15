@@ -27,3 +27,4 @@ doc-gen/
 .idea
 /cmake-build*
 .cache
+.ccls-cache
