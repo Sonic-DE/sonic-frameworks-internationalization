@@ -44,6 +44,7 @@ target_include_directories(KF6I18nQml
 target_link_libraries(KF6I18nQml
     PUBLIC
         Qt6::Core
+        Qt6::QmlIntegration
     PRIVATE
         KF6I18n
         Qt6::Qml
@@ -70,12 +71,6 @@ install(FILES
 ecm_add_installed_library_check(KF6I18nQml
     PACKAGE_NAME "KF6I18n"
     PACKAGE_TARGET_NAMESPACE "KF6::"
-    # CMake config file shared with KF6I18n, many consumers only use that
-    # would not prefer to have CMake config file still check for Qt6QmlIntegration
-    # TODO: itnroduce separate CMake config file for KF6I18nQml
-    EXTRA_DEPENDENCIES Qt6QmlIntegration ${REQUIRED_QT_VERSION}
-    # TODO: missing from public link interface on purpose?
-    EXTRA_LINK_LIBRARIES Qt6::QmlIntegration
 )
 
 ecm_installed_library_check_include_strings(KF6I18nQml
